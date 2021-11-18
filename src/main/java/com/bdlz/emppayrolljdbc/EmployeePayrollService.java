@@ -15,6 +15,7 @@ public class EmployeePayrollService {
         employeePayrollService.getConnection();
         employeePayrollService.insertData();
         employeePayrollService.retrieveData();
+        employeePayrollService.updateSalary();
     }
 
     private void retrieveData() throws SQLException {
@@ -25,6 +26,10 @@ public class EmployeePayrollService {
 
     private void getConnection() {
         Employee.getConnection();
+    }
+
+    private void updateSalary() {
+        Employee.updateSalary(9,9000);
     }
 
     private void insertData() {

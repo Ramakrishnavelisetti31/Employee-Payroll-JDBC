@@ -44,6 +44,7 @@ public class Employee {
             System.out.println(e);
         }
     }
+
     public List<EmployeeInfo> retrieveData() {
         ResultSet resultSet = null;
         List<EmployeeInfo> employeeInfoList = new ArrayList<>();
@@ -65,5 +66,17 @@ public class Employee {
             System.out.println(e);
         }
         return employeeInfoList;
+    }
+
+    public static void updateSalary(int id, int salary) {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            String query = "update employee set salary=" + salary + " where id=" + id + "";
+            int result = statement.executeUpdate(query);
+            if (result == 1)
+                System.out.println("salary updated");
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 }
